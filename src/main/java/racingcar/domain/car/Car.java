@@ -1,6 +1,7 @@
 package racingcar.domain.car;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.domain.printer.Printer;
 
 public class Car {
     private final String name;
@@ -16,6 +17,7 @@ public class Car {
         if (Randoms.pickNumberInRange(0, 9) >= 4) {
             this.position += 1;
         }
+        Printer.progressDistanceOfCarMessage(this.name, this.position);
     }
 
     // 자동차 이동 결과

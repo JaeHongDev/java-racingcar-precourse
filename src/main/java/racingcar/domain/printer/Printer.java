@@ -24,11 +24,12 @@ public class Printer {
 
     // 자동차 이동 거리 진행상황 출력
     public static void progressDistanceOfCarMessage(String name, int position) {
-        System.out.println(name + ":" + StringUtility.repeatString("-", position));
+        System.out.println(name + " : " + StringUtility.repeatString("-", position));
     }
 
     // 최종 우승자 메시지 출력
     public static void winnerMessage(List<String> winners) {
+        System.out.print("최종 우승자 : ");
         for (int i = 0; i < winners.size(); i++) {
             System.out.print(winners.get(i));
             if (i < winners.size() - 1) {
@@ -38,4 +39,7 @@ public class Printer {
     }
 
 
+    public static void onlyNumberPlease() {
+        System.out.println(Message.ERROR + " 시도 횟수는 숫자여야 한다.");
+    }
 }

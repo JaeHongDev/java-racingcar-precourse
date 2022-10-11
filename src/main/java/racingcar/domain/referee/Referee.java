@@ -10,18 +10,15 @@ import java.util.List;
 public class Referee {
 
     // 게임을 판정합니다.
-    public void ruledGame(Player player) {
+    public List<String> ruledGame(Player player) {
         List<Car> generatedCars = player.requestGenerateCar();
-        int       numbersOfRun  = player.requestNumberOfRuns();
+        int numbersOfRun = player.requestNumberOfRuns();
 
         Printer.resultMessage();
         // 경기를 진행
         for (int i = 0; i < numbersOfRun; i++) {
-            // 자동차들은 움직임
-            for (Car car : generatedCars) {
-                car.move();
-                Printer.progressDistanceOfCarMessage(car.getName(), car.getPosition());
-            }
+            generatedCars.forEach(Car::move);
+            System.out.println();
         }
 
         List<String> winners = new ArrayList<>();
@@ -39,6 +36,6 @@ public class Referee {
                 winners.add(car.getName());
             }
         }
-        Printer.winnerMessage(winners);
+        return winners;
     }
 }
